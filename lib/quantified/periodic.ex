@@ -18,12 +18,12 @@ defmodule Quantified.Periodic do
   end
 
   defp schedule_work() do
-    Process.send_after(self(), :work, 10 * 1000) # In 2 hours
+    Process.send_after(self(), :work, 300 * 1000) # In 2 hours
   end
 
   defp do_work() do
     {:ok, response} = HTTPoison.get "https://www.rescuetime.com/anapi/daily_summary_feed?key=B63ypZVTcXozmSfOaZbT2IpzYfmu2AbNZh1c8poZ"
-    decoded = Poison.decode! response.body
-    IO.puts response.body
+    # decoded = Poison.decode! response.body
+    IO.puts "#{response.status_code}, #{String.length(response.body)}"
   end
 end

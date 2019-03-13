@@ -5,7 +5,7 @@ defmodule Quantified.MixProject do
     [
       app: :quantified,
       version: "0.1.0",
-      elixir: "~> 1.8",
+      elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -14,7 +14,7 @@ defmodule Quantified.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :cowboy, :plug, :poison],
+      extra_applications: [:logger, :poison],
       mod: {Quantified.Application, []}
     ]
   end
@@ -23,8 +23,6 @@ defmodule Quantified.MixProject do
   defp deps do
     [
       {:httpoison, "~> 1.4"},
-      {:plug, "~> 1.5"},
-      {:plug_cowboy, "~> 1.0"},
       {:poison, "~> 3.1"}
     ]
   end
